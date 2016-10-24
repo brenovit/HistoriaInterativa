@@ -31,3 +31,7 @@
 # Debug files
 *.dSYM/
 *.su
+/LivroInterativoApp/nbproject/private/
+/App_Web/nbproject/private/
+/App_Web/build/
+/App_Web/dist/
