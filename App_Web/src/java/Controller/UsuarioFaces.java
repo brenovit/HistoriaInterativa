@@ -1,19 +1,23 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package Controller;
 
 import DTO.DtoUsuario;
 import Model.UsuarioDao;
 import java.util.List;
-import javax.inject.Named;
-import javax.enterprise.context.Dependent;
 
-@Named(value = "usuarioFaces")
-@Dependent
-
+/**
+ *
+ * @author Breno
+ */
 public class UsuarioFaces {
 
     private List<DtoUsuario> listaUsuarios = null;
     private UsuarioDao usuarioDao = new UsuarioDao();
-    private DtoUsuario dto;
+    private DtoUsuario dto = new DtoUsuario();
 
     public UsuarioFaces() {
     }

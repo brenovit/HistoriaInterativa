@@ -2,31 +2,17 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core"      >
+      xmlns:h="http://java.sun.com/jsf/html">
     <h:head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8"/>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-        <title>Meu Livro Interativo Cadastrar</title>
+        <title>Facelet Title</title>
     </h:head>
     <h:body>
+        Hello from Facelets
+        <h:outputLabel value="Nome"/>
         <h:form>
-                <label>Nome:</label><br />
-                <h:inputText value="#{usuarioFaces.dto.nome}" maxlength="10"/><br />
-                <label>Login:</label><br />
-                <h:inputText value="#{usuarioFaces.dto.login}" maxlength="10"/><br />
-                <label>Senha</label><br />
-                <h:inputText value="#{usuarioFaces.dto.senha}" maxlength="10"/><br />
-                <h:commandButton value="Cadastrar" action="#{usuarioFaces.cadastrarUsuario}"/>
-            <div style="border-top: 1px solid #999; padding-top:20px"  class="form-group">
-                <!--<div class="col-md-offset-3 col-md-9">
-                    <button id="btn-fbsignup" type="button" class="btn btn-primary"><i class="icon-facebook"></i>   Cadastre-se com o Facebook</button>
-                </div>-->
-                <div style="float:right; font-size: 85%; position: relative; top:-10px">
-                    <a id="signinlink" href="#" onclick="$('#signupbox').hide(); $('#loginbox').show()">Voltar à tela de Login</a>
-                </div>
-            </div>         
+            <h:outputLabel value="Nome">ola mundo</h:outputLabel>
+            <h:inputText value="oi"/>
+            <h:commandButton value="Cadastrar" action="#{usuarioFaces.cadastrarUsuario()}"/>
         </h:form>
     </h:body>
 </html>

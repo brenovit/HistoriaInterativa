@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8"/>
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+        <title>Meu Livro Interativo Login</title>
+    </h:head>
+    <h:body>
+        <div class="container-fluid">
+            <div id="signupbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <div class="panel-title">Criar Login</div>
+                    </div>  
+                    <div class="panel-body" >
+                        <h:form id="signupform" class="form-horizontal" role="form">
+
+                            <div id="signupalert" style="display:none" class="alert alert-danger">
+                                <p>Erro:</p>
+                                <span></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="firstname" class="col-md-3 control-label">Nome Completo</label>
+                                <div class="col-md-9">
+                                    <h:inputSecret value="#{usuarioFaces.dto.nome}" class="form-control"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastname" class="col-md-3 control-label">CPF</label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" name="lastname" placeholder="Apenas números, ex: 00011122233"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="endereco" class="col-md-3 control-label">Endereço</label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" name="endereco" placeholder="Ex: Rua, Nº, Bairro, Cidade, Estado"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="email" class="col-md-3 control-label">E-mail</label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" name="email" placeholder="exemplo@gmail.com"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="password" class="col-md-3 control-label">Senha</label>
+                                <div class="col-md-9">                                        
+                                    <h:inputSecret value="#{usuarioFaces.dto.senha}" class="form-control"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="password" class="col-md-3 control-label">Repita a Senha</label>
+                                <div class="col-md-9">
+                                    <input type="password" class="form-control" name="passwd2" placeholder=""/>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <!-- Button -->                                        
+                                <div class="col-md-offset-3 col-md-9">                                       
+                                    <h:commandButton action="#{usuarioFaces.cadastrarUsuario()}" class="btn btn-success" value="Cadastrar"/> 
+                                    &nbsp;
+                                    <h:commandButton value="Voltar" action="#{usuarioFaces.voltarPrincipal()}" class="btn btn-info" />
+                                </div>
+                            </div>
+                        </h:form>
+                    </div>
+                </div>
+            </div> 
+        </div>
+    </h:body>
+</html>
+
+
