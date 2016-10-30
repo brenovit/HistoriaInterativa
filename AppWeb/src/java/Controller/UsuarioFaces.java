@@ -11,9 +11,29 @@ public class UsuarioFaces {
     private UsuarioDao usuarioDao = usuarioDao = new UsuarioDao();
     private DtoUsuario dto = new DtoUsuario();
     private String erroMsg = "";
+    private boolean user_logado = false;
+    private int livroEscolhido = 0;
+    
+    public int getlivroEscolhido (){
+        return livroEscolhido;
+    }
     
     public UsuarioFaces() {
         
+    }
+    
+    public String mudarEstilo(){
+        if(user_logado){
+            return "";
+        }
+        return "apagado";
+    }
+    
+     public String estaLogado(){
+        if(!user_logado){
+            return "";
+        }
+        return "apagado";
     }
     
     public void erroMsg(){
@@ -37,11 +57,20 @@ public class UsuarioFaces {
         return "VoltarPrincipal";
     }
     
+    public String lerLivro(int numLivro){
+        if(user_logado){
+          livroEscolhido = numLivro;
+        return "LerLivro";  
+        }
+        return "Cadastrar";
+    }
+    
     public String logar() throws ClassNotFoundException, SQLException {
         DtoUsuario temp = usuarioDao.getPorLogin(dto);
         if(temp != null){
             if(dto.getUSUA_Senha().equals(temp.getUSUA_Senha())){
                 dto = temp;
+                user_logado = true;
                 return "AcessarConta";
             }
         }
@@ -68,5 +97,14 @@ public class UsuarioFaces {
             listaUsuarios.remove(dto);
         }
         return "Excluir";
+    }
+    
+    public String Sair(){
+        if(user_logado){
+            dto = new DtoUsuario();
+            user_logado = false;
+            return "Sair";
+        }
+        return "";
     }
 }

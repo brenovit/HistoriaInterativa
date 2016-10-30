@@ -9,6 +9,10 @@
 	font-style: normal;
 }
 
+.apagado {
+    display: none;
+}
+
 .menu-area {
 	left:0;
 	position: fixed;
@@ -30,6 +34,36 @@
 	left: 10px;
 }
 
+/* Top nav bar menu */ 
+
+.top-menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 99999;
+}
+
+.top-menu li {
+    float: left;
+}
+
+.top-menu li a {
+    display: block;
+    color: white;
+    padding: 16px;
+    text-decoration: none;
+}
+
+.main {
+    margin-top: 50px;
+}
+
+/* Top nav bar menu */ 
 
 /* Common styles of menus */
 
@@ -48,6 +82,28 @@
 
 .dl-menuwrapper:first-child {
 	padding-right: 100px;
+}
+
+
+.dl-menuwrapper li input {
+	text-align: left;
+	display: block;
+	position: relative;
+	padding: 15px 20px;
+	font-size: 16px;
+	line-height: 20px;
+	font-weight: 300;
+	color: #fff;
+	outline: none;
+}
+
+.no-touch .dl-menuwrapper li input:hover {
+	background: rgba(255,248,213,0.1);
+	text-decoration: none;
+}
+.no-touch .dl-menuwrapper li input:focus {
+	background: rgba(255,248,213,0.1);
+	text-decoration: none;
 }
 
 .dl-menuwrapper button {

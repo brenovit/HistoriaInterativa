@@ -17,6 +17,18 @@
             <from-outcome>Logar</from-outcome>
             <to-view-id>/login.xhtml</to-view-id>
         </navigation-case>
+        <navigation-case>
+            <from-outcome>AcessarConta</from-outcome>
+            <to-view-id>/conta.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>LerLivro</from-outcome>
+            <to-view-id>/livro.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>Sair</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
     </navigation-rule>
     <navigation-rule>
         <from-view-id>/cadastrar.xhtml</from-view-id>
