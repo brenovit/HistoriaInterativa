@@ -2,8 +2,8 @@
 <Scene Scope="Project" version="2">
     <Scope Scope="Faces Configuration Only"/>
     <Scope Scope="Project">
+        <Node id="livro.xhtml" x="700" y="45" zoom="true"/>
         <Node id="login.xhtml" x="517" y="329" zoom="true"/>
-        <Node id="livro.xhtml" x="662" y="75" zoom="true"/>
         <Node id="index.xhtml" x="326" y="97" zoom="true"/>
         <Node id="cadastrar.xhtml" x="129" y="240" zoom="true"/>
     </Scope>

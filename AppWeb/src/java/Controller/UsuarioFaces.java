@@ -1,17 +1,23 @@
 package Controller;
 
 import DTO.DtoUsuario;
+import Model.UsuarioDao;
+import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
-import org.apache.jasper.tagplugins.jstl.ForEach;
 
 public class UsuarioFaces {
     private List<DtoUsuario> listaUsuarios = new LinkedList<DtoUsuario>();
-    //private UsuarioDao usuarioDao = usuarioDao = new UsuarioDao();
+    private UsuarioDao usuarioDao = usuarioDao = new UsuarioDao();
     private DtoUsuario dto = new DtoUsuario();
-
+    private String erroMsg = "";
+    
     public UsuarioFaces() {
         
+    }
+    
+    public void erroMsg(){
+        erroMsg = "Deu erro";
     }
     
     public DtoUsuario getDto() {
@@ -22,37 +28,29 @@ public class UsuarioFaces {
         this.dto = dto;
     }
     
-    public DtoUsuario ProcurarUsuario(){
-        for(DtoUsuario user : listaUsuarios){
-            if(user.getLogin().equals(dto.getLogin())){
-                System.out.println("====== Encontrado ======");
-                System.out.println("User - Login:"+user.getLogin());
-                System.out.println("User - Senha:"+user.getSenha());
-                return user;
-            }
-        }
+    public DtoUsuario ProcurarUsuario(){        
         return null;
     }
     
     public String voltarPrincipal(){
         dto = new DtoUsuario();
         return "VoltarPrincipal";
-        
     }
     
-    public String logar() {
-        DtoUsuario temp = ProcurarUsuario();
+    public String logar() throws ClassNotFoundException, SQLException {
+        DtoUsuario temp = usuarioDao.getPorLogin(dto);
         if(temp != null){
-            if(dto.getLogin().equals(temp.getLogin()) && dto.getSenha().equals(temp.getSenha())){
+            if(dto.getUSUA_Senha().equals(temp.getUSUA_Senha())){
                 dto = temp;
-                return "LogadoSucesso";
+                return "AcessarConta";
             }
         }
         return "";
     }
 
-    public String cadastrarUsuario() {
-        listaUsuarios.add(dto);        
+    public String cadastrarUsuario() throws ClassNotFoundException, SQLException {
+        dto.setTPUS_ID(1);
+        usuarioDao.setAdicionar(dto);
         dto = new DtoUsuario();
         return "VoltarPrincipal";
     }
@@ -61,14 +59,14 @@ public class UsuarioFaces {
         if(ProcurarUsuario() != null){
            listaUsuarios.remove(dto);
             listaUsuarios.add(dto);
-        }        
+        }
         return "Alterar";
     }
 
     public String deletarUsuario() {
         if(ProcurarUsuario() != null){
             listaUsuarios.remove(dto);
-        }        
+        }
         return "Excluir";
     }
 }

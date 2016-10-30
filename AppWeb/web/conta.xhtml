@@ -8,13 +8,19 @@
     <h:body>
         <h2>Usuario Logado</h2>
         <h:outputLabel value="Nome: "/>
-        <h:outputLabel value="#{usuarioFaces.dto.nome}"/>
+        <h:outputLabel value="#{usuarioFaces.dto.USUA_Nome}"/>
         <br/>
         <h:outputLabel value="Login: "/>
-        <h:outputLabel value="#{usuarioFaces.dto.login}"/>
+        <h:outputLabel value="#{usuarioFaces.dto.USUA_Login}"/>
         <br/>
         <h:outputLabel value="Senha: "/>
-        <h:outputLabel value="#{usuarioFaces.dto.senha}"/>
+        <h:outputLabel value="#{usuarioFaces.dto.USUA_Senha}"/>
+        <br/>
+         <h:outputLabel value="E-mail: "/>
+         <h:outputLabel value="#{usuarioFaces.dto.USUA_Email}"/>
+        <br/>
+         <h:outputLabel value="Tipo usuario: "/>
+         <h:outputLabel value="#{usuarioFaces.dto.TPUS_ID}"/>
         <br/>
         <h:form>
             <h:commandButton value="Voltar" action="VoltarPrincipal"/>

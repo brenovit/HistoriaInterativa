@@ -33,16 +33,16 @@
     <navigation-rule>
         <from-view-id>/login.xhtml</from-view-id>
         <navigation-case>
-            <from-outcome>LogadoSucesso</from-outcome>
-            <to-view-id>/livro.xhtml</to-view-id>
-        </navigation-case>
-        <navigation-case>
             <from-outcome>VoltarPrincipal</from-outcome>
             <to-view-id>/index.xhtml</to-view-id>
         </navigation-case>
+        <navigation-case>
+            <from-outcome>AcessarConta</from-outcome>
+            <to-view-id>/conta.xhtml</to-view-id>
+        </navigation-case>
     </navigation-rule>
     <navigation-rule>
-        <from-view-id>/livro.xhtml</from-view-id>
+        <from-view-id>/conta.xhtml</from-view-id>
         <navigation-case>
             <from-outcome>VoltarPrincipal</from-outcome>
             <to-view-id>/index.xhtml</to-view-id>

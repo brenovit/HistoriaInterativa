@@ -11,11 +11,11 @@ public class DaoUtil {
      
      public Connection getConnection() throws ClassNotFoundException, SQLException{     //contrutor com o padrão singleton, para uma conexão com o banco
           if (cx == null){
-              String url = "";
-              String usr = "";
-              String psw = "";
+              String url = "jdbc:mysql://db4free.net:3306/pi4sem?zeroDateTimeBehavior=convertToNull";
+              String usr = "user_pi4sem";
+              String psw = "pi4sem";
               
-              Class.forName("org.sqlite.JDBC");   
+              Class.forName("com.mysql.jdbc.Driver");   
               cx = DriverManager.getConnection(url, usr, psw);
           }    
          return cx;

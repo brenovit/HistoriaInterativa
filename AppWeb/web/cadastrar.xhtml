@@ -20,43 +20,49 @@
                         <h:form id="signupform" class="form-horizontal" role="form">
 
                             <div id="signupalert" style="display:none" class="alert alert-danger">
-                                <p>Erro:</p>
+                                <p>Erro:<h:outputLabel value="#{usuarioFaces.erroMsg()}"/> </p>
                                 <span></span>
                             </div>
-                            <div class="form-group">
-                                <label for="firstname" class="col-md-3 control-label">Nome Completo</label>
-                                <div class="col-md-9">
-                                    <h:inputSecret value="#{usuarioFaces.dto.nome}" class="form-control"/>
-                                </div>
-                            </div>
-                            <div class="form-group">
+                            <div style="display:none" class="form-group">
                                 <label for="lastname" class="col-md-3 control-label">CPF</label>
                                 <div class="col-md-9">
                                     <input type="text" class="form-control" name="lastname" placeholder="Apenas números, ex: 00011122233"/>
                                 </div>
                             </div>
                             <div class="form-group">
+                                <label for="firstname" class="col-md-3 control-label">Nome Completo</label>
+                                <div class="col-md-9">
+                                    <h:inputText value="#{usuarioFaces.dto.USUA_Nome}" class="form-control"/>
+                                </div>
+                            </div>
+                            <div style="display:none" class="form-group">
                                 <label for="endereco" class="col-md-3 control-label">Endereço</label>
                                 <div class="col-md-9">
                                     <input type="text" class="form-control" name="endereco" placeholder="Ex: Rua, Nº, Bairro, Cidade, Estado"/>
                                 </div>
-                            </div>
+                            </div>                            
                             <div class="form-group">
                                 <label for="email" class="col-md-3 control-label">E-mail</label>
                                 <div class="col-md-9">
-                                    <input type="text" class="form-control" name="email" placeholder="exemplo@gmail.com"/>
+                                    <h:inputText value="#{usuarioFaces.dto.USUA_Email}" class="form-control"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="firstname" class="col-md-3 control-label">Login</label>
+                                <div class="col-md-9">
+                                    <h:inputText value="#{usuarioFaces.dto.USUA_Login}" class="form-control"/>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="password" class="col-md-3 control-label">Senha</label>
                                 <div class="col-md-9">                                        
-                                    <h:inputSecret value="#{usuarioFaces.dto.senha}" class="form-control"/>
+                                    <h:inputSecret value="#{usuarioFaces.dto.USUA_Senha}" class="form-control"/>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="password" class="col-md-3 control-label">Repita a Senha</label>
-                                <div class="col-md-9">
-                                    <input type="password" class="form-control" name="passwd2" placeholder=""/>
+                                <label for="password" class="col-md-3 control-label">Repita a senha</label>
+                                <div class="col-md-9">                                        
+                                    <h:inputSecret value="#{usuarioFaces.dto.confSenha}" class="form-control"/>
                                 </div>
                             </div>
 
