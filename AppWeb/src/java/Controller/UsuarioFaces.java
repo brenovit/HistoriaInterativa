@@ -10,10 +10,11 @@ public class UsuarioFaces {
     private List<DtoUsuario> listaUsuarios = new LinkedList<DtoUsuario>();
     private UsuarioDao usuarioDao = usuarioDao = new UsuarioDao();
     private DtoUsuario dto = new DtoUsuario();
+    
     private String erroMsg = "";
     private boolean user_logado = false;
-    private int livroEscolhido = 0;
-    
+    private int livroEscolhido = 0;    
+       
     public int getlivroEscolhido (){
         return livroEscolhido;
     }
@@ -67,9 +68,11 @@ public class UsuarioFaces {
     
     public String logar() throws ClassNotFoundException, SQLException {
         DtoUsuario temp = usuarioDao.getPorLogin(dto);
+        String senha = Seguranca.GerarHASH(dto.getUSUA_Senha());
         if(temp != null){
-            if(dto.getUSUA_Senha().equals(temp.getUSUA_Senha())){
+            if(senha.equals(temp.getUSUA_Senha())){
                 dto = temp;
+                dto.setUSUA_Senha("");                
                 user_logado = true;
                 return "AcessarConta";
             }
@@ -79,7 +82,12 @@ public class UsuarioFaces {
 
     public String cadastrarUsuario() throws ClassNotFoundException, SQLException {
         dto.setTPUS_ID(1);
+        //String senha = Seguranca.GeneratePass(dto.getUSUA_Senha());
+        //System.out.println("Senha: "+dto.getUSUA_Senha());
+        //System.out.println("Hasgh: "+senha);
+        dto.setUSUA_Senha(Seguranca.GerarHASH(dto.getUSUA_Senha()));
         usuarioDao.setAdicionar(dto);
+        
         dto = new DtoUsuario();
         return "VoltarPrincipal";
     }
@@ -87,7 +95,7 @@ public class UsuarioFaces {
     public String alterarUsuario() {
         if(ProcurarUsuario() != null){
            listaUsuarios.remove(dto);
-            listaUsuarios.add(dto);
+           listaUsuarios.add(dto);
         }
         return "Alterar";
     }

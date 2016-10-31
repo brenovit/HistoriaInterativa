@@ -14,23 +14,21 @@
         <script src="resources/js/modernizr.custom.js"></script>
     </h:head>
     <h:body>
-        <div>
-            <div class="top-menu">
+        <div class="top-menu">
             <h:form>
-            <ul>
-                <li><a href="#intro">Home</a></li>							
-                <li><a href="#services">Livros interativos</a></li>
-                <li><a href="#works">Futuros Titulos</a></li>
-                <li><a href="#contact">Contato</a></li>
-                <li><a href="#about">Componentes</a></li>                
-                <li><a href="testeMenu.xhtml">Novo Menu</a></li>
-                <li><a><h:commandButton action="Logar" value="Login" class="#{usuarioFaces.estaLogado()}"/></a></li>
-                <li><a><h:commandButton action="Cadastrar" value="Cadastrar" class="#{usuarioFaces.estaLogado()}"/></a></li>
-                <li><a><h:commandButton action="AcessarConta" value="Configurações" class="#{usuarioFaces.mudarEstilo()}"/></a></li>
-                <li><a><h:commandButton action="#{usuarioFaces.Sair()}" value="Sair" class="#{usuarioFaces.mudarEstilo()}"/></a></li>
-            </ul>
+                <ul>
+                    <li><a href="#intro">Home</a></li>							
+                    <li><a href="#services">Livros interativos</a></li>
+                    <li><a href="#works">Futuros Titulos</a></li>
+                    <li><a href="#contact">Contato</a></li>
+                    <li><a href="#about">Componentes</a></li>                
+                    <li><a href="testeMenu.xhtml">Novo Menu</a></li>
+                    <li><a><h:commandButton action="Logar" value="Login" class="#{usuarioFaces.estaLogado()}"/></a></li>
+                    <li><a><h:commandButton action="Cadastrar" value="Cadastrar" class="#{usuarioFaces.estaLogado()}"/></a></li>
+                    <li><a><h:commandButton action="AcessarConta" value="Configurações" class="#{usuarioFaces.mudarEstilo()}"/></a></li>
+                    <li><a><h:commandButton action="#{usuarioFaces.Sair()}" value="Sair" class="#{usuarioFaces.mudarEstilo()}"/></a></li>
+                </ul>
             </h:form>
-            </div>
         </div>
         <div class="main">
             <div class="menu-area">
@@ -80,50 +78,50 @@
             <!-- Services -->
             <section id="services" class="home-section bg-white">
                 <h:form class="">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-offset-2 col-md-8">
-                            <div class="section-heading">
-                                <h2>Livros interativos</h2>
-                                <p>O leitor tem a possibilidade de escolher o caminho a seguir durante sua leitura.</p>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-offset-2 col-md-8">
+                                <div class="section-heading">
+                                    <h2>Livros interativos</h2>
+                                    <p>O leitor tem a possibilidade de escolher o caminho a seguir durante sua leitura.</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-                            <div class="service-box wow bounceInDown" data-wow-delay="0.1s">
-                                <i class="fa fa-4x"><img src="resources/img/livros/lv-01.png" alt=""/></i>
-                                <h4>Livro 01</h4>
-                                <p>Titulos dos livros a serem postados</p>
-                                <h:commandButton class="btn btn-primary" value="Ler Livro" action="#{usuarioFaces.lerLivro(1)}"/>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+                                <div class="service-box wow bounceInDown" data-wow-delay="0.1s">
+                                    <i class="fa fa-4x"><img src="resources/img/livros/lv-01.png" alt=""/></i>
+                                    <h4>Livro 01</h4>
+                                    <p>Titulos dos livros a serem postados</p>
+                                    <h:commandButton class="btn btn-primary" value="Ler Livro" action="#{usuarioFaces.lerLivro(1)}"/>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3" data-wow-delay="0.3s">
-                            <div class="service-box wow bounceInDown" data-wow-delay="0.1s">
-                                <i class="fa fa-4x"><img src="resources/img/livros/lv-02.png" alt=""/></i>
-                                <h4>Livro 02</h4>
-                                <p>Titulos dos livros a serem postados</p>
-                                <h:commandButton class="btn btn-primary" value="Ler Livro" action="#{usuarioFaces.lerLivro(2)}"/>
+                            <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3" data-wow-delay="0.3s">
+                                <div class="service-box wow bounceInDown" data-wow-delay="0.1s">
+                                    <i class="fa fa-4x"><img src="resources/img/livros/lv-02.png" alt=""/></i>
+                                    <h4>Livro 02</h4>
+                                    <p>Titulos dos livros a serem postados</p>
+                                    <h:commandButton class="btn btn-primary" value="Ler Livro" action="#{usuarioFaces.lerLivro(2)}"/>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3" data-wow-delay="0.5s">
-                            <div class="service-box wow bounceInDown" data-wow-delay="0.1s">
-                                <i class="fa fa-4x"><img src="resources/img/livros/lv-03.jpg" alt=""/></i>
-                                <h4>Livro 03</h4>
-                                <p>Titulos dos livros a serem postados.</p>
-                                <h:commandButton class="btn btn-primary" value="Ler Livro" action="#{usuarioFaces.lerLivro(3)}"/>
+                            <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3" data-wow-delay="0.5s">
+                                <div class="service-box wow bounceInDown" data-wow-delay="0.1s">
+                                    <i class="fa fa-4x"><img src="resources/img/livros/lv-03.jpg" alt=""/></i>
+                                    <h4>Livro 03</h4>
+                                    <p>Titulos dos livros a serem postados.</p>
+                                    <h:commandButton class="btn btn-primary" value="Ler Livro" action="#{usuarioFaces.lerLivro(3)}"/>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3" data-wow-delay="0.7s">
-                            <div class="service-box wow bounceInDown" data-wow-delay="0.1s">
-                                <i class="fa fa-4x"><img src="resources/img/livros/lv-04.png" alt=""/></i>
-                                <h4>Livro 04</h4>
-                                <p>Titulos dos livros a serem postados.</p>
-                                <h:commandButton class="btn btn-primary" value="Ler Livro" action="#{usuarioFaces.lerLivro(4)}"/>
+                            <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3" data-wow-delay="0.7s">
+                                <div class="service-box wow bounceInDown" data-wow-delay="0.1s">
+                                    <i class="fa fa-4x"><img src="resources/img/livros/lv-04.png" alt=""/></i>
+                                    <h4>Livro 04</h4>
+                                    <p>Titulos dos livros a serem postados.</p>
+                                    <h:commandButton class="btn btn-primary" value="Ler Livro" action="#{usuarioFaces.lerLivro(4)}"/>
+                                </div>
                             </div>
-                        </div>
-                    </div>	
-                </div>  
+                        </div>	
+                    </div>  
                 </h:form>
             </section>
 
