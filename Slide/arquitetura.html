@@ -1,0 +1,122 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/white.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<!--Cada section representa um slide, se movendo horizontalmente. Se uma section -->
+				<section>
+					<h3>Aplicação de padrões de projeto no desenvolvimento de software para a melhoria de qualidade e manutenibilidade</h3>
+					<h2>Cap. 5 - Estudo de Caso</h2>
+					<small>Artigo de Junior Sturm, Madalena Pereira da Silva</small><br/>
+					<small>Slide de Breno, Dilson, Jerfesson, Mauricio, Marcos</small>
+				</section>
+
+				<section>
+					<h1>VISÃO GERAL</h1>
+					<section>
+						<h2>OBJETIVO</h2>
+						<p>Visualizar, por meio de uma aplicação web, as viagens disponíveis pela empresa.</p>
+						<p>Como também efetuar a compra de passagens de forma ágil e simplificada.</p>
+					</section>
+					<section>
+						<h2>NÍVEIS DE ACESSO</h2>
+						<h3>Usuário Administrador</h3>
+						<p>Único com acesso aos cadastros que compõem uma viagem, tendo a possibilidade de cadastrar novos ônibus e rotas.</p>
+					</section>
+					<section>
+						<h2>NÍVEIS DE ACESSO</h2>
+						<h3>Usuário Passageiro</h3>
+						<p>Acesso a todas as viagens que a empresa disponibiliza, sendo possível visualizar os seus dados mais relevantes.</p>
+						<p>Além de poder comprar as passagens no sistema, contudo é necessário estar cadastrado.</p>
+  					</section>
+					<section>
+						<h2>NÍVEIS DE ACESSO</h2>
+						<h3>Usuário Passageiro</h3>
+						<p>Estando logado no sistema, o usuário poderá ver o histórico com as passagens já adquiridas, podendo cancelar um compra que esteja com até 24 horas de antecedência da partida do ônibus.</p>
+  					</section>
+				</section>
+				<section>
+					<h2>Diagrama do sistema</h2>
+					<img class="plain" src="asset/diagrama.png" alt="Diagramas do Sistema">
+				</section>
+				<section>
+					<h2>Pretty Code</h2>
+					<pre><code class="hljs" data-trim contenteditable>
+function linkify( selector ) {
+  if( supports3DTransforms ) {
+
+    var nodes = document.querySelectorAll( selector );
+
+    for( var i = 0, len = nodes.length; i &lt; len; i++ ) {
+      var node = nodes[i];
+
+      if( !node.className ) {
+        node.className += ' roll';
+      }
+    }
+  }
+}
+					</code></pre>					
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						## Markdown support
+
+						Write content using inline or external Markdown.
+						Instructions and more info available in the [readme](https://github.com/hakimel/reveal.js#markdown).
+
+						```
+						<section data-markdown>
+						  ## Markdown support
+
+						  Write content using inline or external Markdown.
+						  Instructions and more info available in the [readme](https://github.com/hakimel/reveal.js#markdown).
+						</section>
+						```
+					</script>
+				</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },				
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>

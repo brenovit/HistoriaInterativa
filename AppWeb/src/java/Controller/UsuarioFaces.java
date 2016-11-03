@@ -68,7 +68,7 @@ public class UsuarioFaces {
     
     public String logar() throws ClassNotFoundException, SQLException {
         DtoUsuario temp = usuarioDao.getPorLogin(dto);
-        String senha = Seguranca.GerarHASH(dto.getUSUA_Senha());
+        String senha = Seguranca.Codificar(dto.getUSUA_Senha());
         if(temp != null){
             if(senha.equals(temp.getUSUA_Senha())){
                 dto = temp;
@@ -82,12 +82,8 @@ public class UsuarioFaces {
 
     public String cadastrarUsuario() throws ClassNotFoundException, SQLException {
         dto.setTPUS_ID(1);
-        //String senha = Seguranca.GeneratePass(dto.getUSUA_Senha());
-        //System.out.println("Senha: "+dto.getUSUA_Senha());
-        //System.out.println("Hasgh: "+senha);
-        dto.setUSUA_Senha(Seguranca.GerarHASH(dto.getUSUA_Senha()));
-        usuarioDao.setAdicionar(dto);
-        
+        dto.setUSUA_Senha(Seguranca.Codificar(dto.getUSUA_Senha()));
+        //usuarioDao.setAdicionar(dto);        
         dto = new DtoUsuario();
         return "VoltarPrincipal";
     }

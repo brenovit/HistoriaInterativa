@@ -1,0 +1,186 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Criptografia - MD5</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+
+		<link rel="stylesheet" href="css/theme/simple.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+					</p>
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<!--Cada section representa um slide, se movendo horizontalmente. Se uma section -->
+				<section>
+					<h1>Criptografia</h1>
+					<h2>Hash com MD5 no Java </h2>
+					<h3>Historia Interativa</h3>
+					<small>Breno Nunes, Dilson Barros, Jerfesson Nascimento, Marcos Paulo, Mauricio Mateus</small>
+				</section>
+				<section>
+					<h2>Criptografia</h2>
+					<section>
+						<p>Conjunto de regras e conceitos que buscam proteger a informação, onde apenas o emissor e o receptor possa traduzir o que esta sendo informado.</p>
+					</section>
+					<section>						
+						<p>Na computação temos o conceito de Chave, que consiste em um conjunto de bits baseado em um algoritimo que codifica e decodifica a informação.</p>
+					</section>
+				</section>
+				<section>
+					<h2>Chave</h2>
+					<section>
+						<h3>Simétricas</h3>						
+						<p>O emissor e o receptor fazem uso da mesma chave, isto é, uma única chave é usada na codificação e na decodificação da informação.</p>
+						<p>Exemplos de algoritmos que usam chaves simétricas: o DES, o IDEA e o RC.</p>
+  					</section>
+					<section>
+						<h2>Assimétricas</h2>
+						<p>Trabalha com duas chaves: uma denominada privada e outra denominada pública. Neste método, um emissor deve criar uma chave de codificação e enviá-la ao receptor. Essa é a chave pública. Uma outra chave deve ser criada para a decodificação. Esta, a chave privada, é secreta. Exemplos: AES, Blowfish, CAST5, RC4</p>
+  					</section>
+				</section>
+				<section>
+					<h1>Hash</h1>					
+					<p>Uma função hash é um algoritmo que mapeia dados de comprimento variável para dados de comprimento fixo.</p>					
+				</section>
+				<section>
+					<h1>MD5</h1>					
+					<p>O MD5 (Message-Digest algorithm 5) é uma função de dispersão de 128 bits unidirecional desenvolvido pela RSA Data Security, Inc., descrito na RFC 1321, e muito utilizado por softwares com P2P e na verificação de integridade de arquivos e logins.</p>		
+				</section>
+				<section>				
+					<h2>MD5 com Java</h2>
+					<section>
+					<pre><code class="hljs" data-trim contenteditable>
+public class Seguranca {
+
+    private static MessageDigest md = null;
+
+    //Instanciando o Objeto md
+    static {
+        try {
+            md = MessageDigest.getInstance("MD5");
+          //md = MessageDigest.getInstance("SHA-1");
+          //md = MessageDigest.getInstance("SHA-256");
+        } catch (NoSuchAlgorithmException ex) {
+            ex.printStackTrace();
+        }
+    }
+}
+					</code></pre>					
+				</section>
+				<section>
+					<pre><code class="hljs" data-trim contenteditable>
+public static String Hash(String senha, int bit) {
+    if (md != null) {
+        //Vetor de Bytes, Ponto de Inicio, Tamanho
+        md.update(senha.getBytes(), 0, senha.length());
+        //Retorna uma string de 128 bits ((16 ^ 2) / 2) da conversão de 
+        //um Inteiro com tamanho de 1 ^ ((10 ^ 8) * 5)
+        //transformando o codigo Hash retornado do metodo digest()
+        return new BigInteger(1, md.digest()).toString(bit);
+    }
+    return "";
+} 
+					</code></pre>					
+				</section>
+				<section>
+					<h3>Salting</h3>
+					<pre><code class="hljs" data-trim contenteditable>
+public static String Codificar(String senha) {
+    String novaSenha = "";
+    byte[] bSenha = senha.getBytes();
+    //retornar o byte da string
+    senha = Arrays.toString(bSenha);
+    //transforma a senha em um vetor de bytes
+    //recria diversos Hash com base na novasenha e o indice i
+    for (int i = 8; i <= bSenha.length * 2; i++) {
+        novaSenha += Hash(senha, i);        
+    }
+    //a nova senha recebe por fim um hash final de 128 bits ((16 ^ 2) / 2)
+    novaSenha = Hash(novaSenha, 16);
+    return novaSenha;
+}
+					</code></pre>					
+				</section>
+				<section>
+					<h3>Cadastrar no Sistema</h3>
+					<pre><code class="hljs" data-trim contenteditable>
+public String cadastrarUsuario() throws ClassNotFoundException, SQLException {
+    dto.setUSUA_Senha(Seguranca.Codificar(dto.getUSUA_Senha()));
+    usuarioDao.setAdicionar(dto);        
+    dto = new DtoUsuario();
+    return "VoltarPrincipal";
+}
+    				</code></pre>					
+				</section>
+				<section>
+					<h3>Logar no Sistema</h3>
+					<pre><code class="hljs" data-trim contenteditable>
+public String logar() throws ClassNotFoundException, SQLException {
+	DtoUsuario temp = usuarioDao.getPorLogin(dto);
+	String senha = Seguranca.Codificar(dto.getUSUA_Senha());
+	if(temp != null){
+		if(senha.equals(temp.getUSUA_Senha())){
+			dto = temp;
+			dto.setUSUA_Senha("");                
+			user_logado = true;
+			return "AcessarConta";
+		}
+	}
+	return "";
+}
+    				</code></pre>					
+					</section>				
+				</section>	
+				<section>					
+					<h3>Referências:</h3>
+					<ul>
+						<li>http://www.gta.ufrj.br/ensino/eel879/trabalhos_vf_2008_2/hugo/Criptografia.html</li>
+						<li>https://docs.oracle.com/javase/7/docs/api/java/security/MessageDigest.html</li>
+						<li>https://www.oficinadanet.com.br/artigo/443/o_que_e_criptografia</li>
+						<li>https://pt.wikipedia.org/wiki/Algoritmo_de_chave_simetrica</li>						
+						<li>http://www.infowester.com/criptografia.php</li>
+						<li>https://pt.wikipedia.org/wiki/MD5</li>
+					</ul>
+				</section>		
+				<section>
+					<h1>Obrigado!</h1>
+				</section>	
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },				
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
