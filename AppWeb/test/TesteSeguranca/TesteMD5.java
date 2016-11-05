@@ -1,6 +1,6 @@
 package TesteSeguranca;
 
-import Controller.Seguranca;
+import Model.Seguranca;
 
 public class TesteMD5 {
     public static void main(String[] args) {
