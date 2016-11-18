@@ -13,51 +13,47 @@
         <link href="resources/css/menu.css" rel="stylesheet" media="screen"/>
         <script src="resources/js/modernizr.custom.js"></script>
     </h:head>
-    <h:body>
-        <div class="top-menu">
+    <h:body>       
+        <div class="menu">
             <h:form>
-                <ul>
-                    <li><a href="#intro">Home</a></li>							
-                    <li><a href="#services">Livros interativos</a></li>
-                    <li><a href="#works">Futuros Titulos</a></li>
-                    <li><a href="#contact">Contato</a></li>
-                    <li><a href="#about">Componentes</a></li>                
-                    <li><a href="testeMenu.xhtml">Novo Menu</a></li>
-                    <li><a><h:commandButton action="Logar" value="Login" class="#{usuarioFaces.estaLogado()}"/></a></li>
-                    <li><a><h:commandButton action="Cadastrar" value="Cadastrar" class="#{usuarioFaces.estaLogado()}"/></a></li>
-                    <li><a><h:commandButton action="AcessarConta" value="Configurações" class="#{usuarioFaces.mudarEstilo()}"/></a></li>
-                    <li><a><h:commandButton action="#{usuarioFaces.Sair()}" value="Sair" class="#{usuarioFaces.mudarEstilo()}"/></a></li>
+                <ul class="nav">             
+                    <li><a href="#">Home</a></li>
+                    <li>
+                        <a href="#">Portofolio</a>
+                        <ul>
+                            <li><a href="#">Webdesign</a></li>
+                            <li><a href="#">Development</a></li>
+                            <li><a href="#">App Design</a></li>
+                            <li>
+                                <a href="#">Identity</a>
+                                <ul>
+                                    <li><a href="#">Level 2</a></li>
+                                    <li><a href="#">Level 2</a></li>
+                                    <li>
+                                        <a href="#">Level 2</a>
+                                        <ul>
+                                            <li><a href="#">Level 3</a></li>
+                                            <li><a href="#">Level 3</a></li>
+                                            <li><a href="#">Level 3</a></li>
+                                            <li><a href="#">Level 3</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#">Level 2</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Marketing</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Livros</a></li>
+                    <li><a href="#">Futuros Titulo</a></li>
+                    <li><a href="#">Contato</a></li>
+                    <li><a href="#"><h:commandButton action="#{usuarioFaces.logar()}" value="Login" class="#{usuarioFaces.mudarEstilo()}"/></a></li>
+                    <li><a href="#">Componentes</a></li>
+                    <li><a href="#">Componentes</a></li>                    
                 </ul>
             </h:form>
         </div>
         <div class="main">
-            <div class="menu-area">
-                <div id="dl-menu" class="dl-menuwrapper"><!-- /dl-menuwrapper -->
-                    <button class="dl-trigger">Open Menu</button>                
-                    <ul class="dl-menu">
-                        <li>
-                            <a href="#intro">Home</a>
-                        </li>							
-                        <li><a href="#services">Livros interativos</a></li>
-                        <li><a href="#works">Futuros Titulos</a></li>
-                        <li><a href="#contact">Contato</a></li>
-                        <li><a href="#about">Componentes</a></li>
-                        <li><h:form><h:commandButton action="Logar" value="Login"/></h:form></li>
-                        <li><a id="fazerLogin" href="login.xhtml">Login</a></li>
-                        <li><a id="fazerCadastro" href="cadastrar.xhtml">Cadastrar</a></li>
-                        <li><a id="minhaConta" href="conta.xhtml">Conta</a></li>
-                        <li><a href="testeMenu.xhtml">Novo Menu</a></li>
-                        <li>
-                            <a href="#">Sub Menu</a>
-                            <ul class="dl-submenu">
-                                <li><a href="#">Sub menu</a></li>
-                                <li><a href="#">Sub menu</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div><!-- /dl-menuwrapper --> 
-            </div>       
-
             <!-- intro area -->	  
             <div id="intro">
                 <div class="intro-text">
@@ -394,5 +390,10 @@
         <script src="resources/js/jquery.dlmenu.js"></script>
         <script src="resources/js/wow.min.js"></script>
         <script src="resources/js/custom.js"></script>
+        <script type="text/javascrip">
+             $(document).ready(function() {
+                  $('.full-width').horizontalNav({});
+            });
+        </script>            
     </h:body>
 </html>

@@ -2,12 +2,12 @@
 <Scene Scope="Project" version="2">
     <Scope Scope="Faces Configuration Only"/>
     <Scope Scope="Project">
-        <Node id="login.xhtml" x="370" y="333" zoom="true"/>
-        <Node id="livro.xhtml" x="150" y="150" zoom="true"/>
-        <Node id="testeMenu.xhtml" x="120" y="65" zoom="true"/>
-        <Node id="index.xhtml" x="378" y="38" zoom="true"/>
-        <Node id="conta.xhtml" x="675" y="88" zoom="true"/>
-        <Node id="cadastrar.xhtml" x="118" y="301" zoom="true"/>
+        <Node id="livro.xhtml" x="178" y="134" zoom="true"/>
+        <Node id="login.xhtml" x="528" y="347" zoom="true"/>
+        <Node id="index.xhtml" x="428" y="38" zoom="true"/>
+        <Node id="painelAdmin.xhtml" x="295" y="262" zoom="true"/>
+        <Node id="cadastrar.xhtml" x="139" y="293" zoom="true"/>
+        <Node id="painelUsuario.xhtml" x="709" y="164" zoom="true"/>
     </Scope>
     <Scope Scope="All Faces Configurations"/>
 </Scene>

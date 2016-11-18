@@ -39,7 +39,7 @@
                             <div style="margin-top:10px" class="form-group">
                                 <!-- Button -->
                                 <div class="col-sm-12 controls">
-                                    <h:commandButton value="Login" action="#{usuarioFaces.logar()}" class="btn btn-success"/>
+                                    <h:commandButton value="Login" action="#{usuarioFaces.logar()}" onclick="teste()" class="btn btn-success"/>
                                     &nbsp;
                                     <h:commandButton value="Voltar" action="#{usuarioFaces.voltarPrincipal()}" class="btn btn-info" />
                                 </div>
@@ -60,4 +60,12 @@
             </div>            
         </div>
     </h:body>
+    <script type="text/javascript">
+    $(document).ready(function(){
+       
+    });
+    function teste(){
+        alert($("input[name='loginform:j_idt7']").val());
+    }
+</script>
 </html>

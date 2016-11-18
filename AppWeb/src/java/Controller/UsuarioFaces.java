@@ -1,5 +1,6 @@
 package Controller;
 
+import Model.Seguranca;
 import DTO.DtoUsuario;
 import Model.UsuarioDao;
 import java.sql.SQLException;
@@ -24,7 +25,7 @@ public class UsuarioFaces {
     }
     
     public String mudarEstilo(){
-        if(user_logado){
+        if(!user_logado){
             return "";
         }
         return "apagado";
@@ -61,7 +62,7 @@ public class UsuarioFaces {
     public String lerLivro(int numLivro){
         if(user_logado){
           livroEscolhido = numLivro;
-        return "LerLivro";  
+            return "LerLivro";  
         }
         return "Cadastrar";
     }
@@ -83,7 +84,7 @@ public class UsuarioFaces {
     public String cadastrarUsuario() throws ClassNotFoundException, SQLException {
         dto.setTPUS_ID(1);
         dto.setUSUA_Senha(Seguranca.Codificar(dto.getUSUA_Senha()));
-        //usuarioDao.setAdicionar(dto);        
+        usuarioDao.setAdicionar(dto);        
         dto = new DtoUsuario();
         return "VoltarPrincipal";
     }
