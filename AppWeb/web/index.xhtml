@@ -26,15 +26,11 @@
                             <li><a href="#">App Design</a></li>
                             <li>
                                 <a href="#">Identity</a>
-                                <ul>
-                                    <li><a href="#">Level 2</a></li>
+                                <ul>                                    
                                     <li><a href="#">Level 2</a></li>
                                     <li>
                                         <a href="#">Level 2</a>
                                         <ul>
-                                            <li><a href="#">Level 3</a></li>
-                                            <li><a href="#">Level 3</a></li>
-                                            <li><a href="#">Level 3</a></li>
                                             <li><a href="#">Level 3</a></li>
                                         </ul>
                                     </li>
@@ -47,9 +43,14 @@
                     <li><a href="#">Livros</a></li>
                     <li><a href="#">Futuros Titulo</a></li>
                     <li><a href="#">Contato</a></li>
-                    <li><a href="#"><h:commandButton action="#{usuarioFaces.logar()}" value="Login" class="#{usuarioFaces.mudarEstilo()}"/></a></li>
-                    <li><a href="#">Componentes</a></li>
-                    <li><a href="#">Componentes</a></li>                    
+                    <li>
+                        <h:commandLink action="Logar" value="Login" class="#{usuarioFaces.estaLogado()}"/>
+                        <h:commandLink action="AcessarConta" value="Configurações" class="#{usuarioFaces.mudarEstilo()}"/>
+                    </li>
+                    <li>
+                        <h:commandLink action="Cadastrar" value="Cadastrar" class="#{usuarioFaces.estaLogado()}"/>
+                        <h:commandLink action="#{usuarioFaces.Sair()}" value="Sair" class="#{usuarioFaces.mudarEstilo()}"/>
+                    </li>                    
                 </ul>
             </h:form>
         </div>
@@ -372,7 +373,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
-                            <p>Tema modificado por <a href="http://dilsonbarros.net">Dilson Barros</a></p>
+                            <p>Equipe 8Lens - Projeto em desenvolvimento</p>
                         </div>
                         <!-- 
                             All links in the footer should remain intact. 

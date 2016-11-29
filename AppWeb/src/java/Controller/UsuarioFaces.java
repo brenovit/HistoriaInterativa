@@ -25,7 +25,7 @@ public class UsuarioFaces {
     }
     
     public String mudarEstilo(){
-        if(!user_logado){
+        if(user_logado){
             return "";
         }
         return "apagado";

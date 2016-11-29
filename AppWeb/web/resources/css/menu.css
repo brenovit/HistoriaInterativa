@@ -3,8 +3,7 @@
 }
 
 .apagado {
-    display: none;
-    all:revert;
+    display: none !important;
 }
 
 .nav, .nav ul {
